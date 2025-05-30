@@ -1,7 +1,7 @@
 import React from "react";
 
 const event = {
-  image: "src/assets/IMAGE.webp", // Replace with your actual image
+  image: "public/assets/IMAGE.webp", // Replace with your actual image
   date: "May 28, 2025",
   tag: "Hackathon",
   title: "Designer x Developer",
@@ -62,7 +62,7 @@ const UpcomingEvent = () => {
             <div className="flex items-center gap-4 mt-4">
               <button className="flex items-center gap-2 bg-[#2979FF] text-white font-poppins rounded-xl px-6 py-2 text-base hover:bg-[#1565c0] transition">
                 {/* Share Icon */}
-                <img src="src/assets/share.svg" alt="Share" className="w-5 h-5" />
+                <img src="public/assets/share.svg" alt="Share" className="w-5 h-5" />
                 Share
               </button>
               <a
