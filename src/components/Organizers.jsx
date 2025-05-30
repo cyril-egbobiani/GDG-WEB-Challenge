@@ -4,7 +4,7 @@ const organizers = [
   {
     name: "Chukwuneku Akpotohwo",
     role: "Organizer",
-    img: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=400&q=80",
+    img: "public/assets/organizer-one.jpg",
     profile: "#",
   },
   {

@@ -7,7 +7,7 @@ const Navbar = () => {
     <nav className="flex justify-between items-center px-2 py-2 pl-8 bg-[#F8F8F8] rounded-full max-w-7xl mx-auto relative">
       {/* Logo */}
       <div className="flex items-center space-x-2">
-        <img src="public/assets/logo.svgg" alt="Logo" className="h-4 w-auto" />
+        <img src="public/logo.svg" alt="Logo" className="h-4 w-auto" />
       </div>
 
       {/* Center: Search and Links (hidden on mobile) */}
