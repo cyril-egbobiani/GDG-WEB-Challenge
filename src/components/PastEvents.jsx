@@ -2,7 +2,7 @@ import React from "react";
 
 const events = [
   {
-    image: "public/assets/card_image.webp",
+    image: "public/card_image.webp",
     date: "May 24, 2025",
     type: "Speaker session / Teck talk",
     title:
@@ -12,7 +12,7 @@ const events = [
     link: "#",
   },
   {
-    image: "public/assets/card_image2.webp",
+    image: "public/card_image2.webp",
     date: "April 20, 2025",
     type: "Speaker session / Teck talk",
     title: "An evening with the Leads/Co-leads: Past and Present",
@@ -21,7 +21,7 @@ const events = [
     link: "#",
   },
   {
-    image: "public/assets/card_image3.webp",
+    image: "public/card_image3.webp",
     date: "April 6, 2025",
     type: "Speaker session / Teck talk",
     title: "Day in the life of a data scientist",

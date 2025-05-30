@@ -2,22 +2,22 @@ import React from "react";
 
 const focusAreas = [
   {
-    img: "public/assets/frontend.svg",
+    img: "public/frontend.svg",
     title: "Front-end Development",
     desc: "• Web and Mobile app Development",
   },
   {
-    img: "public/assets/backend.svg",
+    img: "public/backend.svg",
     title: "Back-end Development",
     desc: "• Node.js, Python",
   },
   {
-    img: "public/assets/product-design.svg",
+    img: "public/product-design.svg",
     title: "Product Design",
     desc: "• Figma, Framer",
   },
   {
-    img: "public/assets/others.svg",
+    img: "public/others.svg",
     title: "Data , AI, Project Management, DSA, Games and Interactive media",
     desc: "",
   },
