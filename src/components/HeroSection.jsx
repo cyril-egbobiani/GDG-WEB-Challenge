@@ -7,11 +7,7 @@ const HeroSection = () => {
     setFadeIn(true);
   }, []);
   return (
-    <section
-      className={`min-h-[80vh] flex flex-col justify-start items-start pt-12 pb-8 px-4 md:px-16 transition-opacity duration-1000 ${
-        fadeIn ? "opacity-100" : "opacity-0"
-      }`}
-    >
+    <section className="px-0 py-8 sm:px-6 lg:px-8">
       {/* Top: Members count */}
 
       {/* Main content */}
@@ -91,8 +87,8 @@ const HeroSection = () => {
               <span className="font-jetbrains text-3xl mr-2">•</span> ABOUT US
             </h2>
             <p className="text-gray-700 font-poppins mb-4 text-left">
-              We’re a community where students come together to learn, grow, and
-              make an impact. No matter what you’re studying, regardless of your
+              We're a community where students come together to learn, grow, and
+              make an impact. No matter what you're studying, regardless of your
               department, everyone is welcome to join us!.
             </p>
             <p className="text-gray-700 font-poppins mb-4 text-left">

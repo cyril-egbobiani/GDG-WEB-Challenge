@@ -33,7 +33,7 @@ const events = [
 
 const PastEvents = () => {
   return (
-    <section className="max-w-7xl mx-auto py-16 px-4">
+    <section className="px-0 py-8 sm:px-6 lg:px-8">
       <h2 className="text-center text-3xl md:text-4xl font-jetbrains font-normal tracking-wider mb-24">
         PAST EVENTS
       </h2>

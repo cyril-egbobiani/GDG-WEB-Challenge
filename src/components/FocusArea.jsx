@@ -2,12 +2,12 @@ import React from "react";
 
 const focusAreas = [
   {
-    img: "public/frontend.svg",
+    img: "/frontend.svg",
     title: "Front-end Development",
     desc: "• Web and Mobile app Development",
   },
   {
-    img: "public/backend.svg",
+    img: "/backend.svg",
     title: "Back-end Development",
     desc: "• Node.js, Python",
   },
@@ -25,7 +25,7 @@ const focusAreas = [
 
 const FocusArea = () => {
   return (
-    <section className="max-w-6xl mx-auto my-16 py-16 px-4">
+    <section className="px-0 py-8 sm:px-6 lg:px-8">
       <h2 className="text-center text-2xl md:text-4xl font-jetbrains font-normal tracking-wider mb-16">
         OUR FOCUS AREAS
       </h2>
