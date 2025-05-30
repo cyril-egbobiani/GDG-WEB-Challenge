@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 const organizers = [
   {
@@ -34,33 +34,8 @@ const organizers = [
 ];
 
 const Organizers = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target); // Stop observing once visible
-        }
-      },
-      { threshold: 0.1 } // Trigger when 10% of the element is visible
-    );
-
-    const section = document.querySelector('.organizers-section'); // Get the section element
-    if (section) {
-      observer.observe(section);
-    }
-
-    return () => {
-      if (section) {
-        observer.unobserve(section);
-      }
-    };
-  }, []);
-
   return (
-    <section className={`organizers-section mt-16 px-0 py-8 sm:px-6 lg:px-8 transition-opacity duration-1000 ease-in ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+    <section className="mt-16 px-0 py-8 sm:px-6 lg:px-8">
       <h2 className="text-center text-3xl md:text-4xl font-jetbrains font-normal tracking-wider mb-2">
         MEET OUR ORGANIZERS
       </h2>
