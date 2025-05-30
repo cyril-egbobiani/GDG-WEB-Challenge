@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const events = [
   {
@@ -32,16 +32,41 @@ const events = [
 ];
 
 const PastEvents = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target); // Stop observing once visible
+        }
+      },
+      { threshold: 0.1 } // Trigger when 10% of the element is visible
+    );
+
+    const section = document.querySelector('.past-events-section'); // Get the section element
+    if (section) {
+      observer.observe(section);
+    }
+
+    return () => {
+      if (section) {
+        observer.unobserve(section);
+      }
+    };
+  }, []);
+
   return (
-    <section className="px-0 py-8 sm:px-6 lg:px-8">
+    <section className={`past-events-section mt-16 px-0 py-8 sm:px-6 lg:px-8 transition-opacity duration-1000 ease-in ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
       <h2 className="text-center text-3xl md:text-4xl font-jetbrains font-normal tracking-wider mb-24">
         PAST EVENTS
       </h2>
-      <div className="flex  flex-col md:flex-row justify-center items-center gap-8">
+      <div className="flex flex-col md:flex-row justify-center items-center gap-8">
         {events.map((event, idx) => (
           <div
             key={idx}
-            className="bg-white rounded-[40px] shadow-md border border-gray-200 w-full max-w-xs md:max-w-sm flex flex-col items-start px-6 py-8 transform transition duration-300"
+            className="bg-white rounded-[40px] shadow-md border border-gray-200 w-full max-w-xs md:max-w-sm flex flex-col items-start px-6 py-8 transform transition duration-300 hover:-translate-y-4 hover:rotate-1 hover:shadow-lg"
             style={{
               rotate: idx === 0 ? "-4.2deg" : idx === 2 ? "-6deg" : "10deg",
               boxShadow: "0 8px 32px 0 rgba(60,60,60,0.10)",

@@ -1,13 +1,35 @@
 import React, { useEffect, useState } from "react";
 
 const HeroSection = () => {
-  const [fadeIn, setFadeIn] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    setFadeIn(true);
-  }, []);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // If the element is in the viewport
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target); // Stop observing once visible
+        }
+      },
+      { threshold: 0.1 } // Trigger when 10% of the element is visible
+    );
+
+    const section = document.querySelector('.hero-section'); // Get the section element
+    if (section) {
+      observer.observe(section);
+    }
+
+    // Clean up the observer on component unmount
+    return () => {
+      if (section) {
+        observer.unobserve(section);
+      }
+    };
+  }, []); // Empty dependency array means this effect runs once on mount and cleans up on unmount
+
   return (
-    <section className="px-0 py-8 sm:px-6 lg:px-8">
+    <section className={`hero-section mt-16 px-0 py-8 sm:px-6 lg:px-8 transition-opacity duration-1000 ease-in ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
       {/* Top: Members count */}
 
       {/* Main content */}
@@ -81,7 +103,7 @@ const HeroSection = () => {
         </div>
 
         {/* Right: About Card */}
-        <div className="flex-1 bg-[#F8F8F8] rounded-[48px] p-8 flex flex-col justify-between min-h-[350px]">
+        <div className="flex-1 bg-[#71ffb7] rounded-[48px] p-7 flex flex-col justify-between min-h-[350px]">
           <div>
             <h2 className="font-jetbrains text-2xl font-normal mb-4 flex items-center">
               <span className="font-jetbrains text-3xl mr-2">•</span> ABOUT US
@@ -104,7 +126,7 @@ const HeroSection = () => {
               and connect with the team that interests you the most!
             </p>
           </div>
-          <button className="mt-4 bg-[#2979FF] text-white font-poppins rounded-2xl px-6 py-3 text-base self-end hover:bg-[#1565c0] transition">
+          <button className="mt-4 bg-black text-white font-poppins rounded-2xl px-6 py-3 text-base self-end hover:bg-[#1565c0] transition">
             Connect with us
           </button>
         </div>

@@ -1,41 +1,66 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const organizers = [
   {
     name: "Chukwuneku Akpotohwo",
     role: "Organizer",
-    img: "public/assets/organizer-one.jpg",
+    img: "/organizer-one.jpg",
     profile: "#",
   },
   {
     name: "Ryan Offiong",
     role: "Event Manager",
-    img: "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80",
+    img: "/organizer-two.jpg",
     profile: "#",
   },
   {
     name: "Favour Ajao-Rotimi",
     role: "Media and Marketing Co-Lead",
-    img: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80",
+    img: "/organizer-three.jpg",
     profile: "#",
   },
   {
     name: "Opeseitan Oyinkansola",
     role: "Assistant Event Manager",
-    img: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80",
+    img: "/organizer-four.jpg",
     profile: "#",
   },
   {
     name: "Chibueze Muoneke",
     role: "Co-Organizer",
-    img: "https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=400&q=80",
+    img: "/organizer-five.jpg",
     profile: "#",
   },
 ];
 
 const Organizers = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target); // Stop observing once visible
+        }
+      },
+      { threshold: 0.1 } // Trigger when 10% of the element is visible
+    );
+
+    const section = document.querySelector('.organizers-section'); // Get the section element
+    if (section) {
+      observer.observe(section);
+    }
+
+    return () => {
+      if (section) {
+        observer.unobserve(section);
+      }
+    };
+  }, []);
+
   return (
-    <section className="px-0 py-8 sm:px-6 lg:px-8">
+    <section className={`organizers-section mt-16 px-0 py-8 sm:px-6 lg:px-8 transition-opacity duration-1000 ease-in ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
       <h2 className="text-center text-3xl md:text-4xl font-jetbrains font-normal tracking-wider mb-2">
         MEET OUR ORGANIZERS
       </h2>

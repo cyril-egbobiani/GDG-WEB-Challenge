@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const event = {
   image: "/IMAGE.webp", // Replace with your actual image
@@ -11,13 +11,38 @@ const event = {
 };
 
 const UpcomingEvent = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target); // Stop observing once visible
+        }
+      },
+      { threshold: 0.1 } // Trigger when 10% of the element is visible
+    );
+
+    const section = document.querySelector('.upcoming-event-section'); // Get the section element
+    if (section) {
+      observer.observe(section);
+    }
+
+    return () => {
+      if (section) {
+        observer.unobserve(section);
+      }
+    };
+  }, []);
+
   return (
-    <section className="px-0 py-8 sm:px-6 lg:px-8">
+    <section className={`upcoming-event-section mt-16 px-0 py-8 sm:px-6 lg:px-8 transition-opacity duration-1000 ease-in ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
       <h2 className="text-center text-3xl md:text-4xl font-jetbrains font-normal tracking-wider mb-16">
         UPCOMING EVENTS
       </h2>
       <div className="flex justify-center">
-        <div className="bg-white rounded-[48px] flex flex-col md:flex-row items-stretch w-full max-w-4xl p-8 gap-8 border border-gray-100">
+        <div className="bg-white rounded-3xl flex flex-col md:flex-row items-stretch w-full max-w-4xl p-4 gap-8 border border-gray-100">
           {/* Event Image */}
           <div className="flex-shrink-0 flex justify-center items-center">
             <img
@@ -62,7 +87,7 @@ const UpcomingEvent = () => {
             <div className="flex items-center gap-4 mt-4">
               <button className="flex items-center gap-2 bg-[#2979FF] text-white font-poppins rounded-xl px-6 py-2 text-base hover:bg-[#1565c0] transition">
                 {/* Share Icon */}
-                <img src="public/assets/share.svg" alt="Share" className="w-5 h-5" />
+                <img src="/share.svg" alt="Share" className="w-5 h-5" />
                 Share
               </button>
               <a
