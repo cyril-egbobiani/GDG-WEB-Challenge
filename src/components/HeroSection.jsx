@@ -33,7 +33,7 @@ const HeroSection = () => {
                 className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-50"
               >
                 <img
-                  src="public/x-social.svg"
+                  src="/x-social.svg"
                   alt="Social Icons"
                   className="w-4 h-4"
                   loading="lazy"
@@ -44,7 +44,7 @@ const HeroSection = () => {
                 className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-50"
               >
                 <img
-                  src="public/linkedIn.svg"
+                  src="/linkedIn.svg"
                   alt="Social Icons"
                   className="w-5 h-5"
                   loading="lazy"
@@ -55,7 +55,7 @@ const HeroSection = () => {
                 className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-50"
               >
                 <img
-                  src="public/instagram.svg"
+                  src="/instagram.svg"
                   alt="Social Icons"
                   className="w-4 h-4"
                   loading="lazy"
@@ -66,7 +66,7 @@ const HeroSection = () => {
                 className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-50"
               >
                 <img
-                  src="public/comment.svg"
+                  src="/comment.svg"
                   alt="Social Icons"
                   className="w-4 h-4"
                   loading="lazy"
@@ -76,7 +76,7 @@ const HeroSection = () => {
           </div>
           <div className="flex-1">
             <img
-              src="public/Image.svg"
+              src="/Image.svg"
               alt="Group"
               className="w-full h-[350px] object-cover rounded-[48px]"
               loading="lazy"

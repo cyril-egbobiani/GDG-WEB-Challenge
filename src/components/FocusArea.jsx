@@ -12,12 +12,12 @@ const focusAreas = [
     desc: "• Node.js, Python",
   },
   {
-    img: "public/product-design.svg",
+    img: "/product-design.svg",
     title: "Product Design",
     desc: "• Figma, Framer",
   },
   {
-    img: "public/others.svg",
+    img: "/others.svg",
     title: "Data , AI, Project Management, DSA, Games and Interactive media",
     desc: "",
   },

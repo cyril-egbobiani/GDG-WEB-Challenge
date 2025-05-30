@@ -1,7 +1,7 @@
 import React from "react";
 
 const event = {
-  image: "public/IMAGE.webp", // Replace with your actual image
+  image: "/IMAGE.webp", // Replace with your actual image
   date: "May 28, 2025",
   tag: "Hackathon",
   title: "Designer x Developer",
