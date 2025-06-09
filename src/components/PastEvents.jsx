@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const events = [
   {
@@ -31,74 +31,117 @@ const events = [
   },
 ];
 
+const slantDegrees = ["-rotate-6", "rotate-3", "rotate-6"];
+
 const PastEvents = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const scrollRef = useRef(null);
+  const [isPaused, setIsPaused] = useState(false);
+
+  // Duplicate the events to create an infinite effect
+  const infiniteEvents = [...events, ...events];
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target); // Stop observing once visible
-        }
-      },
-      { threshold: 0.1 } // Trigger when 10% of the element is visible
-    );
+    const scrollContainer = scrollRef.current;
+    let animationFrame;
+    let scrollAmount = 0;
 
-    const section = document.querySelector('.past-events-section'); // Get the section element
-    if (section) {
-      observer.observe(section);
+    function animate() {
+      if (scrollContainer && !isPaused) {
+        scrollAmount += 1.2; // speed
+        if (scrollAmount >= scrollContainer.scrollWidth / 2) {
+          scrollAmount = 0;
+        }
+        scrollContainer.scrollLeft = scrollAmount;
+      }
+      animationFrame = requestAnimationFrame(animate);
     }
 
-    return () => {
-      if (section) {
-        observer.unobserve(section);
-      }
-    };
-  }, []);
+    animate();
+
+    return () => cancelAnimationFrame(animationFrame);
+  }, [isPaused]);
 
   return (
-    <section className={`past-events-section mt-16 px-0 py-8 sm:px-6 lg:px-8 transition-opacity duration-1000 ease-in ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+    <section className="past-events-section mt-16 px-0 py-8 sm:px-6 lg:px-8">
       <h2 className="text-center text-3xl md:text-4xl font-jetbrains font-normal tracking-wider mb-24">
         PAST EVENTS
       </h2>
-      <div className="flex flex-col md:flex-row justify-center items-center gap-8">
-        {events.map((event, idx) => (
+      <div className="relative flex flex-col items-center">
+        <div
+          ref={scrollRef}
+          className="w-full max-w-4xl overflow-x-hidden"
+          style={{
+            maskImage:
+              "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
+          }}
+        >
           <div
-            key={idx}
-            className="bg-white rounded-[40px] shadow-md border border-gray-200 w-full max-w-xs md:max-w-sm flex flex-col items-start px-6 py-8 transform transition duration-300 hover:-translate-y-4 hover:rotate-1 hover:shadow-lg"
+            className="flex gap-8"
             style={{
-              rotate: idx === 0 ? "-4.2deg" : idx === 2 ? "-6deg" : "10deg",
-              boxShadow: "0 8px 32px 0 rgba(60,60,60,0.10)",
+              width: `${infiniteEvents.length * 340}px`,
+              transition: "none",
             }}
           >
-            <img
-              src={event.image}
-              alt={event.title}
-              className="w-full h-52 object-cover rounded-2xl mb-6"
-              loading="lazy"
-            />
-            <div className="text-[#222] font-jetbrains text-lg mb-2">
-              {event.date}
-            </div>
-            <div className="text-gray-400 font-poppins text-base mb-2">
-              {event.type}
-            </div>
-            <div className="font-poppins text-xl text-left font-medium mb-6">
-              {event.title}
-            </div>
-            <a
-              href={event.link}
-              className={`px-7 py-2 rounded-lg text-white font-poppins text-base ${event.btnColor}`}
-              style={{ minWidth: 80, textAlign: "center" }}
-            >
-              {event.btnText}
-            </a>
+            {infiniteEvents.map((event, idx) => {
+              let slant = "";
+              if (idx % 3 === 0) slant = slantDegrees[0];
+              else if (idx % 3 === 1) slant = slantDegrees[1];
+              else slant = slantDegrees[2];
+              return (
+                <div
+                  key={idx}
+                  className={`flex-shrink-0 ${slant}`}
+                  style={{
+                    width: 320,
+                    marginRight: idx === infiniteEvents.length - 1 ? 0 : "2rem",
+                  }}
+                  onMouseEnter={() => setIsPaused(true)}
+                  onMouseLeave={() => setIsPaused(false)}
+                >
+                  <EventCard event={event} />
+                </div>
+              );
+            })}
           </div>
-        ))}
+        </div>
       </div>
     </section>
   );
 };
+
+function EventCard({ event }) {
+  return (
+    <div
+      className="bg-white rounded-3xl shadow-md flex flex-col items-start px-6 py-6 transition duration-300"
+      style={{
+        boxShadow: "0 8px 32px 0 rgba(60,60,60,0.10)",
+        minHeight: 420,
+      }}
+    >
+      <img
+        src={event.image}
+        alt={event.title}
+        className="w-full h-52 object-cover rounded-xl mb-6"
+        loading="lazy"
+      />
+      <div className="text-[#222] font-jetbrains text-lg mb-2">
+        {event.date}
+      </div>
+      <div className="text-gray-400 font-poppins text-base mb-2">
+        {event.type}
+      </div>
+      <div className="font-poppins text-xl text-left font-medium mb-6">
+        {event.title}
+      </div>
+      <a
+        href={event.link}
+        className={`px-7 py-2 rounded-lg text-white font-poppins text-base ${event.btnColor}`}
+        style={{ minWidth: 80, textAlign: "center" }}
+      >
+        {event.btnText}
+      </a>
+    </div>
+  );
+}
 
 export default PastEvents;
