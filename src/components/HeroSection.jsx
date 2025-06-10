@@ -96,14 +96,14 @@ const HeroSection = () => {
             <img
               src="/heroImage.png"
               alt="Group"
-              className="w-full h-[350px] object-cover rounded-[48px]"
+              className="w-full h-[350px] object-cover rounded-4xl"
               loading="lazy"
             />
           </div>
         </div>
 
         {/* Right: About Card */}
-        <div className="flex-1 bg-[#71ffb7] rounded-[48px] p-7 flex flex-col justify-between min-h-[350px]">
+        <div className="flex-1 bg-[#71ffb7] rounded-4xl p-5 -x-4 flex flex-col justify-between h-[350px]">
           <div>
             <h2 className="font-jetbrains text-2xl font-normal mb-4 flex items-center">
               <span className="font-jetbrains text-3xl mr-2">•</span> ABOUT US
