@@ -1,7 +1,24 @@
 import React, { useState } from "react";
 
+const navLinks = [
+  { label: "About GDG", target: "about" },
+  { label: "Past Events", target: "past-events" },
+  { label: "Upcoming Events", target: "upcoming-events" },
+  { label: "Our Organizers", target: "organizers" },
+];
+
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  // Smooth scroll handler
+  const handleNavClick = (e, target) => {
+    e.preventDefault();
+    setMenuOpen(false);
+    const el = document.getElementById(target);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   return (
     <nav className="fixed top-0 left-0 z-10 w-full bg-white shadow-md mt-0">
@@ -11,57 +28,25 @@ const Navbar = () => {
           <img src="/logo.svg" alt="Logo" className="h-4 w-auto" />
         </div>
 
-        {/* Center: Search and Links (hidden on mobile) */}
+        {/* Desktop Nav */}
         <div className="hidden md:flex items-center space-x-10">
-          {/* Search Icon */}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5 text-gray-700 mr-2 cursor-pointer"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <circle cx="11" cy="11" r="7" strokeWidth="2" />
-            <line x1="16.5" y1="16.5" x2="21" y2="21" strokeWidth="2" />
-          </svg>
-          {/* Nav Links */}
-          <a
-            href="#"
-            className="font-poppins text-[#5B616D] hover:text-gray-700 text-sm no-underline"
-          >
-            About GDG
-          </a>
-          <a
-            href="#"
-            className="font-poppins text-[#5B616D] hover:text-gray-700 text-sm no-underline"
-          >
-            Chapters
-          </a>
-          <a
-            href="#"
-            className="font-poppins text-[#5B616D] hover:text-gray-700 text-sm no-underline"
-          >
-            Upcoming Events
-          </a>
+          {navLinks.map((link) => (
+            <a
+              key={link.target}
+              href={`#${link.target}`}
+              onClick={(e) => handleNavClick(e, link.target)}
+              className="font-poppins text-[#5B616D] hover:text-gray-700 text-sm no-underline"
+            >
+              {link.label}
+            </a>
+          ))}
           <button className="font-poppins rounded-full bg-black text-white px-8 py-2 text-sm">
             Login
           </button>
         </div>
 
-        {/* Mobile: Search and Hamburger */}
+        {/* Mobile: Hamburger */}
         <div className="flex items-center md:hidden space-x-4">
-          {/* Search Icon */}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5 text-gray-700 cursor-pointer"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <circle cx="11" cy="11" r="7" strokeWidth="2" />
-            <line x1="16.5" y1="16.5" x2="21" y2="21" strokeWidth="2" />
-          </svg>
-          {/* Hamburger/X Icon */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="focus:outline-none"
@@ -103,9 +88,9 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu with Slide Down Animation */}
+      {/* Mobile Menu */}
       <div
-        className={`absolute top-20 left-0 w-full bg-white shadow-lg rounded-lg flex flex-col items-center p-4 space-y-4 md:hidden z-50
+        className={`absolute top-15 left-0 w-full bg-white shadow-lg rounded-b-2xl flex flex-col items-center p-4 space-y-4 md:hidden z-50
           transition-all duration-300 ease-in-out
           ${
             menuOpen
@@ -114,24 +99,16 @@ const Navbar = () => {
           }
         `}
       >
-        <a
-          href="#"
-          className="font-poppins text-[#5B616D] hover:text-gray-700 text-sm no-underline"
-        >
-          About GDG
-        </a>
-        <a
-          href="#"
-          className="font-poppins text-[#5B616D] hover:text-gray-700 text-sm no-underline"
-        >
-          Chapters
-        </a>
-        <a
-          href="#"
-          className="font-poppins text-[#5B616D] hover:text-gray-700 text-sm no-underline"
-        >
-          Upcoming Events
-        </a>
+        {navLinks.map((link) => (
+          <a
+            key={link.target}
+            href={`#${link.target}`}
+            onClick={(e) => handleNavClick(e, link.target)}
+            className="font-poppins text-[#5B616D] hover:text-gray-700 text-sm no-underline"
+          >
+            {link.label}
+          </a>
+        ))}
         <button className="font-poppins rounded-full bg-black w-full text-white px-8 py-2 text-sm">
           Login
         </button>

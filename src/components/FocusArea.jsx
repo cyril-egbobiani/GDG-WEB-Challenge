@@ -2,22 +2,22 @@ import React, { useEffect, useState } from "react";
 
 const focusAreas = [
   {
-    img: "/frontend.svg",
+    img: "/frontend.png",
     title: "Front-end Development",
     desc: "• Web and Mobile app Development",
   },
   {
-    img: "/backend.svg",
+    img: "/backend.png",
     title: "Back-end Development",
     desc: "• Node.js, Python",
   },
   {
-    img: "/product-design.svg",
+    img: "/productDesign.png",
     title: "Product Design",
     desc: "• Figma, Framer",
   },
   {
-    img: "/others.svg",
+    img: "/others.png",
     title: "Data , AI, Project Management, DSA, Games and Interactive media",
     desc: "",
   },

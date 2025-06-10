@@ -29,7 +29,7 @@ const HeroSection = () => {
   }, []); // Empty dependency array means this effect runs once on mount and cleans up on unmount
 
   return (
-    <section className={`hero-section mt-16 px-0 py-8 sm:px-6 lg:px-8 transition-opacity duration-1000 ease-in ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+    <section id="about" className={`hero-section mt-16 px-0 py-8 sm:px-6 lg:px-8 transition-opacity duration-1000 ease-in ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
       {/* Top: Members count */}
 
       {/* Main content */}
@@ -126,7 +126,7 @@ const HeroSection = () => {
               and connect with the team that interests you the most!
             </p>
           </div>
-          <button className="mt-4 bg-black text-white font-poppins rounded-2xl px-6 py-3 text-base self-end hover:bg-[#1565c0] transition">
+          <button className="mt-4 bg-black text-white font-poppins rounded-2xl px-6 py-3 text-base self-end hover:bg-white transition hover:text-black">
             Connect with us
           </button>
         </div>

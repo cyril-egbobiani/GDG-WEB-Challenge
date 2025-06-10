@@ -37,7 +37,7 @@ const UpcomingEvent = () => {
   }, []);
 
   return (
-    <section className={`upcoming-event-section mt-16 px-0 py-8 sm:px-6 lg:px-8 transition-opacity duration-1000 ease-in ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+    <section id="upcoming-events"  className={`upcoming-event-section mt-16 px-0 py-8 sm:px-6 lg:px-8 transition-opacity duration-1000 ease-in ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
       <h2 className="text-center text-3xl md:text-4xl font-jetbrains font-normal tracking-wider mb-16">
         UPCOMING EVENTS
       </h2>

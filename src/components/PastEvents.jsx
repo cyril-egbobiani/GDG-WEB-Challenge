@@ -62,7 +62,7 @@ const PastEvents = () => {
   }, [isPaused]);
 
   return (
-    <section className="past-events-section mt-16 px-0 py-8 sm:px-6 lg:px-8">
+    <section id="past-events"  className="past-events-section mt-16 px-0 py-8 sm:px-6 lg:px-8">
       <h2 className="text-center text-3xl md:text-4xl font-jetbrains font-normal tracking-wider mb-24">
         PAST EVENTS
       </h2>

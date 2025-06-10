@@ -35,7 +35,7 @@ const organizers = [
 
 const Organizers = () => {
   return (
-    <section className="mt-16 px-0 py-8 sm:px-6 lg:px-8">
+    <section id="organizers" className="mt-16 px-0 py-8 sm:px-6 lg:px-8">
       <h2 className="text-center text-3xl md:text-4xl font-jetbrains font-normal tracking-wider mb-2">
         MEET OUR ORGANIZERS
       </h2>
@@ -44,27 +44,34 @@ const Organizers = () => {
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 justify-center">
         {organizers.map((org, idx) => (
-          <div key={idx} className="flex flex-col items-center">
+          <div
+            key={idx}
+            className="flex flex-col items-center mx-auto w-full max-w-xs"
+          >
             <img
               src={org.img}
               alt={org.name}
               className="w-64 h-72 object-cover rounded-2xl mb-6"
               loading="lazy"
             />
-            <div className="font-poppins text-xl font-medium text-center mb-1">
-              {org.name}
+            <div className="flex flex-col flex-1 justify-between items-center h-full w-full">
+              <div>
+                <div className="font-poppins text-xl font-medium text-center mb-1">
+                  {org.name}
+                </div>
+                <div className="font-poppins text-gray-500 text-base text-center mb-3">
+                  {org.role}
+                </div>
+              </div>
+              <a
+                href={org.profile}
+                className="text-[#2979FF] font-poppins underline text-base text-center mt-auto block"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Visit Profile
+              </a>
             </div>
-            <div className="font-poppins text-gray-500 text-base text-center mb-3">
-              {org.role}
-            </div>
-            <a
-              href={org.profile}
-              className="text-[#2979FF] font-poppins underline text-base text-center"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Visit Profile
-            </a>
           </div>
         ))}
       </div>
