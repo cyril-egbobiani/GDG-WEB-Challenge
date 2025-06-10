@@ -42,13 +42,13 @@ const UpcomingEvent = () => {
         UPCOMING EVENTS
       </h2>
       <div className="flex justify-center">
-        <div className="bg-white rounded-3xl flex flex-col md:flex-row items-stretch w-full max-w-4xl p-4 gap-8 border border-gray-100">
+        <div className="bg-white rounded-3xl flex flex-col  md:flex-row items-stretch w-full max-w-4xl p-4 gap-8 border border-gray-100">
           {/* Event Image */}
           <div className="flex-shrink-0 flex justify-center items-center">
             <img
               src={event.image}
               alt="Event Poster"
-              className="w-64 h-80 object-cover rounded-2xl border border-gray-200"
+              className="w-64 h-80 object-cover  border border-gray-200"
               loading="lazy"
             />
           </div>

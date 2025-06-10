@@ -66,10 +66,10 @@ const PastEvents = () => {
       <h2 className="text-center text-3xl md:text-4xl font-jetbrains font-normal tracking-wider mb-24">
         PAST EVENTS
       </h2>
-      <div className="relative flex flex-col items-center">
+      <div className="relative   flex flex-col items-center">
         <div
           ref={scrollRef}
-          className="w-full max-w-4xl overflow-x-hidden"
+          className="w-full px-3   py-5 overflow-x-hidden"
           style={{
             maskImage:
               "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
@@ -112,10 +112,9 @@ const PastEvents = () => {
 function EventCard({ event }) {
   return (
     <div
-      className="bg-white rounded-3xl shadow-md flex flex-col items-start px-6 py-6 transition duration-300"
+      className="bg-white rounded-3xl border border-gray-200  flex flex-col items-start p-6 transition duration-300"
       style={{
-        boxShadow: "0 8px 32px 0 rgba(60,60,60,0.10)",
-        minHeight: 420,
+         minHeight: 420,
       }}
     >
       <img

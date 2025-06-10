@@ -1,7 +1,7 @@
 import React from "react";
 
 const ActionSection = () => (
-  <section className="bg-black rounded-t-2xl mt-15">
+  <section className="bg-black rounded-4xl my-15">
     <div className="max-w-5xl mx-auto py-24 px-4 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
       <div className="flex-1 min-w-0">
         <h2 className="text-4xl md:text-left md:text-5xl font-poppins font-semibold text-white mb-2">

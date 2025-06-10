@@ -94,7 +94,7 @@ const HeroSection = () => {
           </div>
           <div className="flex-1">
             <img
-              src="/Image.svg"
+              src="/heroImage.png"
               alt="Group"
               className="w-full h-[350px] object-cover rounded-[48px]"
               loading="lazy"
