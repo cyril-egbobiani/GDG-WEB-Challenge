@@ -5,31 +5,31 @@ const organizers = [
     name: "Chukwuneku Akpotohwo",
     role: "Organizer",
     img: "/organizer-one.jpg",
-    profile: "#",
+    profile: "https://gdg.community.dev/u/m2un28/",
   },
   {
     name: "Ryan Offiong",
     role: "Event Manager",
     img: "/organizer-two.jpg",
-    profile: "#",
+    profile: "https://gdg.community.dev/u/mmz2d7/",
   },
   {
     name: "Favour Ajao-Rotimi",
     role: "Media and Marketing Co-Lead",
     img: "/organizer-three.jpg",
-    profile: "#",
+    profile: "https://gdg.community.dev/u/mm65m6/",
   },
   {
     name: "Opeseitan Oyinkansola",
     role: "Assistant Event Manager",
     img: "/organizer-four.jpg",
-    profile: "#",
+    profile: "https://gdg.community.dev/u/mvmsxc/",
   },
   {
     name: "Chibueze Muoneke",
     role: "Co-Organizer",
     img: "/organizer-five.jpg",
-    profile: "#",
+    profile: "https://gdg.community.dev/u/m64zh4/",
   },
 ];
 
@@ -59,7 +59,7 @@ const Organizers = () => {
                 <div className="font-poppins text-xl font-medium text-center mb-1">
                   {org.name}
                 </div>
-                <div className="font-poppins text-gray-500 text-base text-center mb-3">
+                <div className="font-poppins  text-gray-500 text-light text-center mb-3">
                   {org.role}
                 </div>
               </div>

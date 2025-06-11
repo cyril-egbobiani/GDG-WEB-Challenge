@@ -15,7 +15,7 @@ const HeroSection = () => {
       { threshold: 0.1 } // Trigger when 10% of the element is visible
     );
 
-    const section = document.querySelector('.hero-section'); // Get the section element
+    const section = document.querySelector(".hero-section"); // Get the section element
     if (section) {
       observer.observe(section);
     }
@@ -29,7 +29,12 @@ const HeroSection = () => {
   }, []); // Empty dependency array means this effect runs once on mount and cleans up on unmount
 
   return (
-    <section id="about" className={`hero-section mt-16 px-0 py-8 sm:px-6 lg:px-8 transition-opacity duration-1000 ease-in ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+    <section
+      id="about"
+      className={`hero-section mt-16 px-0 py-8 sm:px-6 lg:px-8 transition-opacity duration-1000 ease-in ${
+        isVisible ? "opacity-100" : "opacity-0"
+      }`}
+    >
       {/* Top: Members count */}
 
       {/* Main content */}
@@ -47,8 +52,10 @@ const HeroSection = () => {
             </span>
             <div className="mb-5 w-full flex flex-row items-center gap-4 py-3">
               <a
-                href="#"
+                href="https://x.com/gdgbabcock"
                 className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-50"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <img
                   src="/x-social.svg"
@@ -58,8 +65,10 @@ const HeroSection = () => {
                 />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/company/gdgbabcock/"
                 className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-50"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <img
                   src="/linkedIn.svg"
@@ -69,8 +78,10 @@ const HeroSection = () => {
                 />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/gdgbabcock/#"
                 className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-50"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <img
                   src="/instagram.svg"
@@ -82,6 +93,8 @@ const HeroSection = () => {
               <a
                 href="#"
                 className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-50"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <img
                   src="/comment.svg"

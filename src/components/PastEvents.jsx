@@ -9,7 +9,7 @@ const events = [
       "Building an LLM and RAG-based chat application using AlloyDB AI and LangChain",
     btnColor: "bg-[#FF3B30]",
     btnText: "View",
-    link: "#",
+    link: "https://gdg.community.dev/events/details/google-gdg-on-campus-babcock-university-ilishan-remo-nigeria-presents-building-an-llm-and-rag-based-chat-application-using-alloydb-ai-and-langchain/",
   },
   {
     image: "/card_image2.webp",
@@ -18,7 +18,7 @@ const events = [
     title: "An evening with the Leads/Co-leads: Past and Present",
     btnColor: "bg-[#22C55E]",
     btnText: "View",
-    link: "#",
+    link: "https://gdg.community.dev/events/details/google-gdg-on-campus-babcock-university-ilishan-remo-nigeria-presents-an-evening-with-the-leadsco-leadspast-and-present/",
   },
   {
     image: "/card_image3.webp",
@@ -27,7 +27,7 @@ const events = [
     title: "Day in the life of a data scientist",
     btnColor: "bg-[#FACC15]",
     btnText: "View",
-    link: "#",
+    link: "https://gdg.community.dev/events/details/google-gdg-on-campus-babcock-university-ilishan-remo-nigeria-presents-day-in-the-life-of-a-data-scientist/",
   },
 ];
 
@@ -62,7 +62,10 @@ const PastEvents = () => {
   }, [isPaused]);
 
   return (
-    <section id="past-events"  className="past-events-section mt-16 px-0 py-8 sm:px-6 lg:px-8">
+    <section
+      id="past-events"
+      className="past-events-section mt-16 px-0 py-8 sm:px-6 lg:px-8"
+    >
       <h2 className="text-center text-3xl md:text-4xl font-jetbrains font-normal tracking-wider mb-24">
         PAST EVENTS
       </h2>
@@ -114,7 +117,7 @@ function EventCard({ event }) {
     <div
       className="bg-white rounded-3xl border border-gray-200  flex flex-col items-start p-6 transition duration-300"
       style={{
-         minHeight: 420,
+        minHeight: 420,
       }}
     >
       <img
@@ -136,6 +139,8 @@ function EventCard({ event }) {
         href={event.link}
         className={`px-7 py-2 rounded-lg text-white font-poppins text-base ${event.btnColor}`}
         style={{ minWidth: 80, textAlign: "center" }}
+        target="_blank"
+        rel="noopener noreferrer"
       >
         {event.btnText}
       </a>
